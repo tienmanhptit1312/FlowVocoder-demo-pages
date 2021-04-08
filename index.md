@@ -23,9 +23,9 @@ Recently, non-autoregressive neural vocoders have provided remarkable performanc
 
 | FlowVocoder | WaveFlow | NanoFlow | WaveGlow | Ground-truth |
 |-------------|----------|----------|----------|--------------|
-| <audio src="./TTS/FlowVocoder/LJ001-0006.wav" controls preload size=3></audio> | <audio src="./TTS/WaveFlow/LJ001-0006.wav" controls preload size=3></audio> | <audio src="./TTS/NanoFlow/LJ001-0006.wav" controls preload size=3></audio> | <audio src="./TTS/WaveGlow/LJ006-0001.wav" controls preload size=3></audio> | <audio src="./Ground-truth/LJ001-0006.wav" controls preload size=3></audio> |      
+| <audio src="./TTS/FlowVocoder/LJ001-0006.wav" controls preload size=3></audio> | <audio src="./TTS/WaveFlow/LJ001-0006.wav" controls preload size=3></audio> | <audio src="./TTS/NanoFlow/LJ001-0006.wav" controls preload size=3></audio> | <audio src="./TTS/WaveGlow/LJ006-0006.wav" controls preload size=3></audio> | <audio src="./Ground-truth/LJ001-0006.wav" controls preload size=3></audio> |      
 
-| <audio src="./TTS/FlowVocoder/LJ001-0007.wav" controls preload size=3></audio> | <audio src="./TTS/WaveFlow/LJ001-0007.wav" controls preload size=3></audio> | <audio src="./TTS/NanoFlow/LJ001-0007.wav" controls preload size=3></audio> | <audio src="./TTS/WaveGlow/LJ001-0007.wav_synthesis.wav" controls preload size=3></audio> | <audio src="./Ground-truth/LJ001-0007.wav" controls preload size=3></audio> |  
+| <audio src="./TTS/FlowVocoder/LJ001-0007.wav" controls preload size=3></audio> | <audio src="./TTS/WaveFlow/LJ001-0007.wav" controls preload size=3></audio> | <audio src="./TTS/NanoFlow/LJ001-0007.wav" controls preload size=3></audio> | <audio src="./TTS/WaveGlow/LJ001-0007.wav" controls preload size=3></audio> | <audio src="./Ground-truth/LJ001-0007.wav" controls preload size=3></audio> |  
 
 | <audio src="./TTS/FlowVocoder/LJ001-0008.wav" controls preload size=3></audio> | <audio src="./TTS/WaveFlow/LJ001-0008.wav" controls preload size=3></audio> | <audio src="./TTS/NanoFlow/LJ001-0008.wav" controls preload size=3></audio> | <audio src="./TTS/WaveGlow/LJ001-0008.wav" controls preload size=3></audio> | <audio src="./Ground-truth/LJ001-0008.wav" controls preload size=3></audio> |  
 
