@@ -1,57 +1,29 @@
 
 
 # Abstract
-Voice conversion is a challenging task which transformsvoice characteristics of a source speaker to a target speakerwithout  changing  linguistic  content. Recently, there  havebeen many works on many-to-many Voice Conversion (VC)based on Variational Autoencoder (VAEs)  achieving goodresults , however, these  methods lack the ability to disen-tangle speaker identity and linguistic content to achieve wellgeneralized performance. In this paper, we propose a  new method based on feature disentanglement to tackle many-to-many VC. By capability of disentangling speaker identityand linguistic content from utterances, Disentangle-VAE canconvert from many source speakers to many target speakerswith a single autoencoder network. Moreover, it achieves well generalized  performance with unseen target speakers. We perform both objective and subjective evaluation to verifythat our proposed method is able to transform source utterances to target utterance with high audio naturalness andtarget speaker similarity.
-
-# Melspectrogram Visualization
-
-We conducted experiments on melspectrograms feature and relized that the speaker embedding has significant impact to melspectrograms. This phenomenon 
-explains for our assumption which is there are some common factors represent speaker identity embedded in speaker embedding, the other distinct factors represent linguishtic content extracted in content latent vector. Hence, by swapping speaker embedding between two utterance Disentangle-VAE is able to transform the identity of source speaker to the identity of target speaker.  
-
-The script: "Please call Stela"
-
-|  Original utterance (Female)   |     Converted utterance (Male)       |
-|:------------------------------:|:------------------------------------:|
-| ![female](original_p225_001.png) |  ![male](convert_p225_p226_001.png)  |
-| <audio src="p225_001.wav" controls preload size=5></audio> |   <audio src="convert_p225_to_p226_001.wav" controls preload size=5></audio>   |
+Recently, non-autoregressive neural vocoders have provided remarkable performance in generating high-fidelity speech andhave been able to produce synthetic speech in real-time. However, non-autoregressive neural vocoders such as WaveGloware far behind  autoregressive neural vocoders like WaveFlowin terms of modeling audio signals due to their limitation in ex-pressiveness. In addition, though NanoFlow is a state of theart autoregressive neural vocoder that has immensely small parameters, its performance is marginally lower than WaveFlow. Therefore, in this paper, we propose a new type of autore-gressive neural vocoder called FlowVocoder, which has a smallmemory footprint and is able to generate high-fidelity audio inreal-time. Our proposed model improves the expressiveness offlow blocks by operating a mixture of Cumulative DistributionFunction (CDF) for bipartite transformation. Hence, the pro-posed model is capable of modeling waveform signals as wellas WaveFlow, while its memory footprint is much smaller thanWaveFlow. As shown in experiments, FlowVocoder achieves competitive results with baseline methods in terms of both subjective and objective evaluation, also, it is more suitable for real-time text-to-speech applications.
 
 
+# Synthetic audio conditioned on mel spectrogram
 
-# Male &#8594; Female
+| FlowVocoder | WaveFlow | NanoFlow | WaveGlow | Ground-truth |
+|-------------|----------|----------|----------|--------------|
+| <audio src="./Neural-Vocoder/FlowVocoder/LJ001-0001.wav" controls preload size=3></audio> | <audio src="./Neural-Vocoder/WaveFlow/LJ001-0001.wav" controls preload size=3></audio> | <audio src="./Neural-Vocoder/NanoFlow/LJ001-0001.wav" controls preload size=3></audio> | <audio src="./Neural-Vocoder/WaveGlow/LJ001-0001.wav" controls preload size=3></audio> | <audio src="./Ground-truth/LJ001-0001.wav" controls preload size=3></audio> |      
 
-|          | Source | Target | Disentangled-VAE | GLE-VQVAE | ACVAE |
-|----------|--------|--------|------------------|-----------|-------|
-| sample 1 |   <audio src="./M2F/p232_003.wav" controls preload size=5></audio>   |    <audio src="./M2F/p229_003.wav" controls preload size=5></audio>   |  <audio src="./M2F/[Dis-VAE]convert_p232_to_p229_003.wav" controls preload size=5></audio>|  <audio src="./M2F/gsb_0003.wav" controls preload size=5></audio>  |  <audio src="./M2F/[ACVAE]p232_003.wav" controls preload size=5></audio>   |        
+| <audio src="./Neural-Vocoder/FlowVocoder/LJ001-0002.wav" controls preload size=3></audio> | <audio src="./Neural-Vocoder/WaveFlow/LJ001-0002.wav" controls preload size=3></audio> | <audio src="./Neural-Vocoder/NanoFlow/LJ001-0002.wav" controls preload size=3></audio> | <audio src="./Neural-Vocoder/WaveGlow/LJ001-0002.wav" controls preload size=3></audio> | <audio src="./Ground-truth/LJ001-0002.wav" controls preload size=3></audio> |  
 
-| sample 2 |   <audio src="./M2F/p232_004.wav" controls preload></audio>   |    <audio src="./M2F/p229_004.wav" controls preload></audio>   |  <audio src="./M2F/[Dis-VAE]convert_p232_to_p229_004.wav" controls preload></audio>     |   <audio src="./M2F/gsb_0004.wav" controls preload></audio>   |   <audio src="./M2F/[ACVAE]p232_004.wav" controls preload></audio>   |
+| <audio src="./Neural-Vocoder/FlowVocoder/LJ001-0003.wav" controls preload size=3></audio> | <audio src="./Neural-Vocoder/WaveFlow/LJ001-0003.wav" controls preload size=3></audio> | <audio src="./Neural-Vocoder/NanoFlow/LJ001-0003.wav" controls preload size=3></audio> | <audio src="./Neural-Vocoder/WaveGlow/LJ001-0003.wav" controls preload size=3></audio> | <audio src="./Ground-truth/LJ001-0003.wav" controls preload size=3></audio> |  
 
+| <audio src="./Neural-Vocoder/FlowVocoder/LJ001-0004.wav" controls preload size=3></audio> | <audio src="./Neural-Vocoder/WaveFlow/LJ001-0004.wav" controls preload size=3></audio> | <audio src="./Neural-Vocoder/NanoFlow/LJ001-0004.wav" controls preload size=3></audio> | <audio src="./Neural-Vocoder/WaveGlow/LJ001-0004.wav" controls preload size=3></audio> | <audio src="./Ground-truth/LJ001-0004.wav" controls preload size=3></audio> |  
 
-
-# Female &#8594; Male
-
-|          | Source | Target | Disentangled-VAE | GLE-VQVAE | ACVAE |
-|----------|--------|--------|------------------|-----------|-------|
-| sample 1 |   <audio src="./F2M/p225_003.wav" controls preload></audio>   |    <audio src="./F2M/p226_003.wav" controls preload></audio>   |  <audio src="./F2M/[Dis-VAE]p225_to_p226_003.wav" controls preload></audio>|  <audio src="./F2M/gsb_0003.wav" controls preload></audio>  |  <audio src="./F2M/[ACVAE]p225_003.wav" controls preload></audio>   |        
-
-| sample 2 |   <audio src="./F2M/p225_010.wav" controls preload></audio>   |    <audio src="./F2M/p226_010.wav" controls preload></audio>   |  <audio src="./F2M/[Dis-VAe]p225_to_p226_010.wav" controls preload></audio>     |   <audio src="./F2M/gsb_0010.wav" controls preload></audio>   |   <audio src="./F2M/[ACVAE]p225_010.wav" controls preload></audio>   |
+| <audio src="./Neural-Vocoder/FlowVocoder/LJ001-0005.wav" controls preload size=3></audio> | <audio src="./Neural-Vocoder/WaveFlow/LJ001-0005.wav" controls preload size=3></audio> | <audio src="./Neural-Vocoder/NanoFlow/LJ001-0005.wav" controls preload size=3></audio> | <audio src="./Neural-Vocoder/WaveGlow/LJ001-0005.wav" controls preload size=3></audio> | <audio src="./Ground-truth/LJ001-0005.wav" controls preload size=3></audio> |  
 
 
-# Female &#8594; Female
+# Text to speech with Tacotron2
 
-|          | Source | Target | Disentangled-VAE | GLE-VQVAE | ACVAE |
-|----------|--------|--------|------------------|-----------|-------|
-| sample 1 |   <audio src="./F2F/p229_003.wav" controls preload></audio>   |    <audio src="./F2F/p225_003.wav" controls preload></audio>   |  <audio src="./F2F/[Dis-VAE]p229_to_p225_003.wav" controls preload></audio>|  <audio src="./F2F/gsb_0003.wav" controls preload></audio>  |  <audio src="./F2F/[ACVAE]p229_003.wav" controls preload></audio>   |        
-
-| sample 2 |   <audio src="./F2F/p229_004.wav" controls preload></audio>   |    <audio src="./F2F/p225_004.wav" controls preload></audio>   |  <audio src="./F2F/[Dis-VAE]convert_p229_to_p225_004.wav" controls preload></audio>     |   <audio src="./F2F/gsb_0004.wav" controls preload></audio>   |   <audio src="./F2F/[ACVAE]p229_004.wav" controls preload></audio>   |
-
-
-# Male &#8594; Male
-
-|          | Source | Target | Disentangled-VAE | GLE-VQVAE | ACVAE |
-|----------|--------|--------|------------------|-----------|-------|
-| sample 1 |   <audio src="./M2M/p226_006.wav" controls preload></audio>   |    <audio src="./M2M/p232_006.wav" controls preload></audio>   |  <audio src="./M2M/[Dis-VAE]convert_p226_to_p232_006.wav" controls preload></audio>|  <audio src="./M2M/gsb_0006.wav" controls preload></audio>  |  <audio src="./M2M/[ACVAE]p226_006.wav" controls preload></audio>   |        
-
-| sample 2 |   <audio src="./M2M/p226_013.wav" controls preload></audio>   |    <audio src="./M2M/p232_013.wav" controls preload></audio>   |  <audio src="./M2M/[Dis-VAE]convert_p226_to_p232_013.wav" controls preload></audio>     |   <audio src="./M2M/gsb_0013.wav" controls preload></audio>   |   <audio src="./M2M/[ACVAE]p226_013.wav" controls preload></audio>   |
+| FlowVocoder | WaveFlow | NanoFlow | WaveGlow | Ground-truth |
+|-------------|----------|----------|----------|--------------|
+| sample 1 |   <audio src="./F2M/p225_003.wav" controls preload></audio>  |
 
 
 
